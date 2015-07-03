@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHelloWorldClient", "ConsoleHelloWorldClient\ConsoleHelloWorldClient.csproj", "{04DEAEF4-EBD8-4159-91FF-A8EE7D55A39C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHelloWorldService", "ConsoleHelloWorldService\ConsoleHelloWorldService.csproj", "{13BCA66F-5634-4861-ADA8-082B03CF2BC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04DEAEF4-EBD8-4159-91FF-A8EE7D55A39C}.Debug|x86.ActiveCfg = Debug|x86
+		{04DEAEF4-EBD8-4159-91FF-A8EE7D55A39C}.Debug|x86.Build.0 = Debug|x86
+		{04DEAEF4-EBD8-4159-91FF-A8EE7D55A39C}.Release|x86.ActiveCfg = Release|x86
+		{04DEAEF4-EBD8-4159-91FF-A8EE7D55A39C}.Release|x86.Build.0 = Release|x86
+		{13BCA66F-5634-4861-ADA8-082B03CF2BC0}.Debug|x86.ActiveCfg = Debug|x86
+		{13BCA66F-5634-4861-ADA8-082B03CF2BC0}.Debug|x86.Build.0 = Debug|x86
+		{13BCA66F-5634-4861-ADA8-082B03CF2BC0}.Release|x86.ActiveCfg = Release|x86
+		{13BCA66F-5634-4861-ADA8-082B03CF2BC0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
