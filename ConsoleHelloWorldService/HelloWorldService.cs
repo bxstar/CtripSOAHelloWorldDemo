@@ -20,5 +20,17 @@ namespace ConsoleHelloWorldService
         {
             return new CheckHealthResponseType();
         }
+
+        #region IHelloWorldService Members
+
+
+        public GetLatestTimeResponseType GetLatestTime(GetLatestTimeType request)
+        {
+            string strDtNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Console.WriteLine("accept client request at " + strDtNow);
+            return new GetLatestTimeResponseType { Result = strDtNow };
+        }
+
+        #endregion
     }
 }

@@ -22,6 +22,21 @@ namespace ConsoleHelloWorldClient
             {
                 Console.WriteLine("Error : {0}", response.ResponseStatus.Errors[0].Message);
             }
+
+            //新加的方法，返回服务器当前的时间
+            int i = 1;
+            while (i++ < 20)
+            {
+                System.Threading.Thread.Sleep(1000);
+
+                var latestResponse = client.GetLatestTime(new GetLatestTimeType());
+                if (latestResponse.ResponseStatus.Ack == AckCodeType.Success)
+                {
+                    Console.WriteLine(latestResponse.Result);
+                }
+            }
+            
+
             Console.ReadKey();
         }
     }
