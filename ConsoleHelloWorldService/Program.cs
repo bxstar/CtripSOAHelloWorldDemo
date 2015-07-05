@@ -22,7 +22,7 @@ namespace ConsoleHelloWorldService
         // Run Web Service
         static void Main(string[] args)
         {
-            var listeningOn = args.Length == 0 ? "http://*:1337/" : args[0];
+            var listeningOn = args.Length == 0 ? "http://localhost:13337/" : args[0];
             var appHost = new AppHost();
             appHost.Init();
             appHost.Start(listeningOn);

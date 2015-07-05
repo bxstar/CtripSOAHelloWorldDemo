@@ -11,7 +11,7 @@ namespace ConsoleHelloWorldClient
     {
         static void Main(string[] args)
         {
-            var client = HelloWorldServiceClient.GetInstance("http://localhost:1337");
+            var client = HelloWorldServiceClient.GetInstance("http://localhost:13337");
             var response = client.Hello(new HelloRequestType { Name = "World" });
 
             if (response.ResponseStatus.Ack == AckCodeType.Success)
