@@ -24,8 +24,8 @@ namespace ConsoleHelloWorldService
             return new CheckHealthResponseType();
         }
 
-        #region IHelloWorldService Members
 
+        #region 自定义方法的实现
 
         public GetLatestTimeResponseType GetLatestTime(GetLatestTimeType request)
         {
@@ -38,6 +38,13 @@ namespace ConsoleHelloWorldService
         {
             int result = request.num1 + request.num2;
             return new AddNumberResponseType { Result = result };
+        }
+
+        public AddPersonAgeResponseType AddPersonAge(AddPersonAgeRequestType request)
+        {
+            int result = request.num1 + request.person.Age;
+            
+            return new AddPersonAgeResponseType { Result = result }; 
         }
 
         #endregion

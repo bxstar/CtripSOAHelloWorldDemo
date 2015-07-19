@@ -23,9 +23,6 @@ namespace ConsoleHelloWorldService
     using CServiceStack.Common.Types;
     
     
-    /// <summary>
-    /// Sample helloworld request
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -39,9 +36,6 @@ namespace ConsoleHelloWorldService
         
         private string nameField;
         
-        /// <summary>
-        /// If provided, service will response with Hello 'Name'.
-        /// </summary>
         [DataMember()]
         [ProtoMember(1)]
         public string Name
@@ -57,9 +51,6 @@ namespace ConsoleHelloWorldService
         }
     }
     
-    /// <summary>
-    /// Sample helloworld response
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -89,9 +80,6 @@ namespace ConsoleHelloWorldService
             }
         }
         
-        /// <summary>
-        /// HelloWorld response result
-        /// </summary>
         [DataMember()]
         [ProtoMember(2)]
         public string Result
@@ -107,9 +95,6 @@ namespace ConsoleHelloWorldService
         }
     }
     
-    /// <summary>
-    /// 无参数
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -122,9 +107,6 @@ namespace ConsoleHelloWorldService
     {
     }
     
-    /// <summary>
-    /// 获取服务器的最新时间
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -154,9 +136,6 @@ namespace ConsoleHelloWorldService
             }
         }
         
-        /// <summary>
-        /// 最新时间的一般格式，如：2015-07-03 15:09:33
-        /// </summary>
         [DataMember()]
         [ProtoMember(2)]
         public string Result
@@ -172,9 +151,6 @@ namespace ConsoleHelloWorldService
         }
     }
     
-    /// <summary>
-    /// 将两个数字相加
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -190,9 +166,6 @@ namespace ConsoleHelloWorldService
         
         private int num2Field;
         
-        /// <summary>
-        /// 数字1
-        /// </summary>
         [DataMember()]
         [ProtoMember(1)]
         public int num1
@@ -207,9 +180,6 @@ namespace ConsoleHelloWorldService
             }
         }
         
-        /// <summary>
-        /// 数字2
-        /// </summary>
         [DataMember()]
         [ProtoMember(2)]
         public int num2
@@ -225,9 +195,6 @@ namespace ConsoleHelloWorldService
         }
     }
     
-    /// <summary>
-    /// 数字相加之和
-    /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -257,9 +224,138 @@ namespace ConsoleHelloWorldService
             }
         }
         
-        /// <summary>
-        /// 数字相加之和
-        /// </summary>
+        [DataMember()]
+        [ProtoMember(2)]
+        public int Result
+        {
+            get
+            {
+                return this.resultField;
+            }
+            set
+            {
+                this.resultField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("AddPersonAgeRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="AddPersonAgeRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [ProtoContract()]
+    public partial class AddPersonAgeRequestType
+    {
+        
+        private int num1Field;
+        
+        private PersonModel personField;
+        
+        [DataMember()]
+        [ProtoMember(1)]
+        public int num1
+        {
+            get
+            {
+                return this.num1Field;
+            }
+            set
+            {
+                this.num1Field = value;
+            }
+        }
+        
+        [DataMember()]
+        [ProtoMember(2)]
+        public PersonModel person
+        {
+            get
+            {
+                return this.personField;
+            }
+            set
+            {
+                this.personField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=true)]
+    [DataContract(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [ProtoContract()]
+    public partial class PersonModel
+    {
+        
+        private string nameField;
+        
+        private int ageField;
+        
+        [DataMember()]
+        [ProtoMember(1)]
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        [DataMember()]
+        [ProtoMember(2)]
+        public int Age
+        {
+            get
+            {
+                return this.ageField;
+            }
+            set
+            {
+                this.ageField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("AddPersonAgeResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="AddPersonAgeResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [ProtoContract()]
+    public partial class AddPersonAgeResponseType : IHasResponseStatus
+    {
+        
+        private ResponseStatusType responseStatusField;
+        
+        private int resultField;
+        
+        [DataMember()]
+        [ProtoMember(1)]
+        public ResponseStatusType ResponseStatus
+        {
+            get
+            {
+                return this.responseStatusField;
+            }
+            set
+            {
+                this.responseStatusField = value;
+            }
+        }
+        
         [DataMember()]
         [ProtoMember(2)]
         public int Result
@@ -294,10 +390,12 @@ namespace ConsoleHelloWorldService
         
         CheckHealthResponseType CheckHealth(CheckHealthRequestType request);
         
-        GetLatestTimeResponseType GetLatestTime(GetLatestTimeType request);
-        
         HelloResponseType Hello(HelloRequestType request);
         
+        GetLatestTimeResponseType GetLatestTime(GetLatestTimeType request);
+        
         AddNumberResponseType AddNumber(AddNumberRequestType request);
+        
+        AddPersonAgeResponseType AddPersonAge(AddPersonAgeRequestType request);
     }
 }
