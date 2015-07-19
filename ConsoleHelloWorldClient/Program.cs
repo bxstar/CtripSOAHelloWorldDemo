@@ -36,6 +36,11 @@ namespace ConsoleHelloWorldClient
                 }
             }
             
+            //工具生成的方法，计算数字之和
+            int n1 = 10; int n2 = 5;
+            var addResponse = client.AddNumber(new AddNumberRequestType { num1 = n1, num2 = n2 });
+
+            Console.WriteLine(addResponse.Result);
 
             Console.ReadKey();
         }

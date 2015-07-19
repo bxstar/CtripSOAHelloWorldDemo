@@ -82,5 +82,51 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:element name="AddNumberRequest" type="ns:AddNumberRequestType" />
+  <xs:complexType name="AddNumberRequestType">
+    <xs:annotation>
+      <xs:documentation>
+        将两个数字相加
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="num1" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            数字1
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="num2" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            数字2
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="AddNumberResponse" type="ns:AddNumberResponseType" />
+  <xs:complexType name="AddNumberResponseType">
+    <xs:annotation>
+      <xs:documentation>
+        数字相加之和
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
+      <xs:element name="Result" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            数字相加之和
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   
 </xs:schema>

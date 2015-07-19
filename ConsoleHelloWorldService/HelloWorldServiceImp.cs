@@ -7,7 +7,10 @@ using CServiceStack.Common.Types;
 
 namespace ConsoleHelloWorldService
 {
-    public class HelloWorldService : IHelloWorldService
+    /// <summary>
+    /// SOA的实现（Route为Resful方式调用）
+    /// </summary>
+    public class HelloWorldServiceImp : IHelloWorldService
     {
         [Route("/sayHello")]
         public HelloResponseType Hello(HelloRequestType helloWorldIn)
@@ -29,6 +32,12 @@ namespace ConsoleHelloWorldService
             string strDtNow = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             Console.WriteLine("accept client request at " + strDtNow);
             return new GetLatestTimeResponseType { Result = strDtNow };
+        }
+
+        public AddNumberResponseType AddNumber(AddNumberRequestType request)
+        {
+            int result = request.num1 + request.num2;
+            return new AddNumberResponseType { Result = result };
         }
 
         #endregion
