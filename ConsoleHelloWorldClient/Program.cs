@@ -58,15 +58,18 @@ namespace ConsoleHelloWorldClient
             //Console.WriteLine(personResponse2.IsPersonOlder);
             //Console.WriteLine(personResponse2.Person.Name);
 
-
-            int i = 3;
-            var response4 = client.GetAllPerson(new GetAllPersonRequestType { num1 = i });
-            Console.WriteLine(response4.Result);
-
-            foreach (var item in response4.PersonList)
+            List<PersonModel> lstPerson = new List<PersonModel>();
+            for (int i = 0; i < 4; i++)
             {
-                Console.WriteLine(item.Name+"\t"+item.Age);
+                PersonModel p = new PersonModel();
+                p.Age = 25 + i;
+                p.Name = "lyn" + i * 2;
+                lstPerson.Add(p);
             }
+
+            var response4 = client.SavePersonList(new SavePersonListRequestType { PersonList = lstPerson });
+
+            Console.WriteLine(response4.AvgAge);
 
             Console.ReadKey();
         }

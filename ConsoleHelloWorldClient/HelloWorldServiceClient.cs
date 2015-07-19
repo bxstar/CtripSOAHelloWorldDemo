@@ -395,25 +395,30 @@ namespace ConsoleHelloWorldClient
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
-    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
-    [DataContract(Name="GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("SavePersonListRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="SavePersonListRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
     [ProtoContract()]
-    public partial class GetAllPersonRequestType
+    public partial class SavePersonListRequestType
     {
         
-        private int num1Field;
+        private List<PersonModel> personListField;
         
+        [System.Xml.Serialization.XmlElementAttribute("PersonList")]
         [DataMember()]
         [ProtoMember(1)]
-        public int num1
+        public List<PersonModel> PersonList
         {
             get
             {
-                return this.num1Field;
+                if ((this.personListField == null))
+                {
+                    this.personListField = new List<PersonModel>();
+                }
+                return this.personListField;
             }
             set
             {
-                this.num1Field = value;
+                this.personListField = value;
             }
         }
     }
@@ -423,15 +428,15 @@ namespace ConsoleHelloWorldClient
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
-    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
-    [DataContract(Name="GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("SavePersonListResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="SavePersonListResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
     [ProtoContract()]
-    public partial class GetAllPersonResponseType : IHasResponseStatus
+    public partial class SavePersonListResponseType : IHasResponseStatus
     {
         
         private ResponseStatusType responseStatusField;
         
-        private int resultField;
+        private decimal avgAgeField;
         
         private List<PersonModel> personListField;
         
@@ -451,15 +456,15 @@ namespace ConsoleHelloWorldClient
         
         [DataMember()]
         [ProtoMember(2)]
-        public int Result
+        public decimal AvgAge
         {
             get
             {
-                return this.resultField;
+                return this.avgAgeField;
             }
             set
             {
-                this.resultField = value;
+                this.avgAgeField = value;
             }
         }
         
@@ -582,19 +587,19 @@ namespace ConsoleHelloWorldClient
             return base.StartIOCPTask<AddPersonAgeResponseType>("AddPersonAge", addPersonAgeIn);
         }
         
-        public virtual GetAllPersonResponseType GetAllPerson(GetAllPersonRequestType getAllPersonIn)
+        public virtual SavePersonListResponseType SavePersonList(SavePersonListRequestType savePersonListIn)
         {
-            return base.Invoke<GetAllPersonResponseType>("GetAllPerson", getAllPersonIn);
+            return base.Invoke<SavePersonListResponseType>("SavePersonList", savePersonListIn);
         }
         
-        public virtual Task<GetAllPersonResponseType> CreateAsyncTaskOfGetAllPerson(GetAllPersonRequestType getAllPersonIn, CancellationToken? cancellationToken = null, TaskCreationOptions? taskCreationOptions = null)
+        public virtual Task<SavePersonListResponseType> CreateAsyncTaskOfSavePersonList(SavePersonListRequestType savePersonListIn, CancellationToken? cancellationToken = null, TaskCreationOptions? taskCreationOptions = null)
         {
-            return base.CreateAsyncTask<GetAllPersonRequestType, GetAllPersonResponseType>("GetAllPerson", getAllPersonIn, cancellationToken, taskCreationOptions);
+            return base.CreateAsyncTask<SavePersonListRequestType, SavePersonListResponseType>("SavePersonList", savePersonListIn, cancellationToken, taskCreationOptions);
         }
         
-        public virtual Task<GetAllPersonResponseType> StartIOCPTaskOfGetAllPerson(GetAllPersonRequestType getAllPersonIn)
+        public virtual Task<SavePersonListResponseType> StartIOCPTaskOfSavePersonList(SavePersonListRequestType savePersonListIn)
         {
-            return base.StartIOCPTask<GetAllPersonResponseType>("GetAllPerson", getAllPersonIn);
+            return base.StartIOCPTask<SavePersonListResponseType>("SavePersonList", savePersonListIn);
         }
     }
 }

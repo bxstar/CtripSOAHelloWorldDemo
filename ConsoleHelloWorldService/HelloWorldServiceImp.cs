@@ -54,23 +54,19 @@ namespace ConsoleHelloWorldService
             return response;
         }
 
-        public GetAllPersonResponseType GetAllPerson(GetAllPersonRequestType request)
+        public SavePersonListResponseType SavePersonList(SavePersonListRequestType request)
         {
-            GetAllPersonResponseType response = new GetAllPersonResponseType();
-            response.PersonList = new List<PersonModel>();
-            for (int i = 0; i < request.num1; i++)
-            {
-                PersonModel p = new PersonModel();
-                p.Name = "name" + i.ToString();
-                p.Age = 20 + i;
+            SavePersonListResponseType response = new SavePersonListResponseType();
 
-                response.PersonList.Add(p);
-            }
-            response.Result = response.PersonList.Count;
+            response.AvgAge = request.PersonList.Select(o => o.Age * 1.0M).Average();
+
+            response.PersonList = request.PersonList;
 
             return response;
         }
 
         #endregion
+
+
     }
 }

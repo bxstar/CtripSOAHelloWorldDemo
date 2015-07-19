@@ -392,25 +392,30 @@ namespace ConsoleHelloWorldService
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
-    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
-    [DataContract(Name="GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("SavePersonListRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="SavePersonListRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
     [ProtoContract()]
-    public partial class GetAllPersonRequestType
+    public partial class SavePersonListRequestType
     {
         
-        private int num1Field;
+        private List<PersonModel> personListField;
         
+        [System.Xml.Serialization.XmlElementAttribute("PersonList")]
         [DataMember()]
         [ProtoMember(1)]
-        public int num1
+        public List<PersonModel> PersonList
         {
             get
             {
-                return this.num1Field;
+                if ((this.personListField == null))
+                {
+                    this.personListField = new List<PersonModel>();
+                }
+                return this.personListField;
             }
             set
             {
-                this.num1Field = value;
+                this.personListField = value;
             }
         }
     }
@@ -420,15 +425,15 @@ namespace ConsoleHelloWorldService
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
-    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
-    [DataContract(Name="GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("SavePersonListResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="SavePersonListResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
     [ProtoContract()]
-    public partial class GetAllPersonResponseType : IHasResponseStatus
+    public partial class SavePersonListResponseType : IHasResponseStatus
     {
         
         private ResponseStatusType responseStatusField;
         
-        private int resultField;
+        private decimal avgAgeField;
         
         private List<PersonModel> personListField;
         
@@ -448,15 +453,15 @@ namespace ConsoleHelloWorldService
         
         [DataMember()]
         [ProtoMember(2)]
-        public int Result
+        public decimal AvgAge
         {
             get
             {
-                return this.resultField;
+                return this.avgAgeField;
             }
             set
             {
-                this.resultField = value;
+                this.avgAgeField = value;
             }
         }
         
@@ -507,6 +512,6 @@ namespace ConsoleHelloWorldService
         
         AddPersonAgeResponseType AddPersonAge(AddPersonAgeRequestType request);
         
-        GetAllPersonResponseType GetAllPerson(GetAllPersonRequestType request);
+        SavePersonListResponseType SavePersonList(SavePersonListRequestType request);
     }
 }

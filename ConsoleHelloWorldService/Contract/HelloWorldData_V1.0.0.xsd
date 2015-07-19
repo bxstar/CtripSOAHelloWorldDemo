@@ -197,41 +197,41 @@
 
 
 
-  <xs:element name="GetAllPersonRequest" type="ns:GetAllPersonRequestType" />
-  <xs:complexType name="GetAllPersonRequestType">
+  <xs:element name="SavePersonListRequest" type="ns:SavePersonListRequestType" />
+  <xs:complexType name="SavePersonListRequestType">
     <xs:annotation>
       <xs:documentation>
-        获取人员信息
+        批量保存人员信息
       </xs:documentation>
       <xs:appinfo>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="num1" type="xs:int" minOccurs="0">
+      <xs:element name="PersonList" type="ns:PersonModel" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            数字1
+            人员信息列表
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="GetAllPersonResponse" type="ns:GetAllPersonResponseType" />
-  <xs:complexType name="GetAllPersonResponseType">
+  <xs:element name="SavePersonListResponse" type="ns:SavePersonListResponseType" />
+  <xs:complexType name="SavePersonListResponseType">
     <xs:annotation>
       <xs:documentation>
-        人员信息的数量和列表
+        人员的平均年龄和列表
       </xs:documentation>
       <xs:appinfo>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
-      <xs:element name="Result" type="xs:int" minOccurs="0">
+      <xs:element name="AvgAge" type="xs:decimal" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
-            人员数量
+            人员的年龄平均值
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -271,5 +271,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
 
 </xs:schema>
