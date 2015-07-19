@@ -270,7 +270,7 @@ namespace ConsoleHelloWorldService
         
         [DataMember()]
         [ProtoMember(2)]
-        public PersonModel person
+        public PersonModel Person
         {
             get
             {
@@ -340,7 +340,97 @@ namespace ConsoleHelloWorldService
         
         private ResponseStatusType responseStatusField;
         
+        private bool isPersonOlderField;
+        
+        private PersonModel personField;
+        
+        [DataMember()]
+        [ProtoMember(1)]
+        public ResponseStatusType ResponseStatus
+        {
+            get
+            {
+                return this.responseStatusField;
+            }
+            set
+            {
+                this.responseStatusField = value;
+            }
+        }
+        
+        [DataMember()]
+        [ProtoMember(2)]
+        public bool IsPersonOlder
+        {
+            get
+            {
+                return this.isPersonOlderField;
+            }
+            set
+            {
+                this.isPersonOlderField = value;
+            }
+        }
+        
+        [DataMember()]
+        [ProtoMember(3)]
+        public PersonModel Person
+        {
+            get
+            {
+                return this.personField;
+            }
+            set
+            {
+                this.personField = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="GetAllPersonRequest", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [ProtoContract()]
+    public partial class GetAllPersonRequestType
+    {
+        
+        private int num1Field;
+        
+        [DataMember()]
+        [ProtoMember(1)]
+        public int num1
+        {
+            get
+            {
+                return this.num1Field;
+            }
+            set
+            {
+                this.num1Field = value;
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.34234")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [System.Xml.Serialization.XmlRootAttribute("GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1", IsNullable=false)]
+    [DataContract(Name="GetAllPersonResponse", Namespace="http://soa.ctrip.com/framework/soa/sample/v1")]
+    [ProtoContract()]
+    public partial class GetAllPersonResponseType : IHasResponseStatus
+    {
+        
+        private ResponseStatusType responseStatusField;
+        
         private int resultField;
+        
+        private List<PersonModel> personListField;
         
         [DataMember()]
         [ProtoMember(1)]
@@ -367,6 +457,25 @@ namespace ConsoleHelloWorldService
             set
             {
                 this.resultField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("PersonList")]
+        [DataMember()]
+        [ProtoMember(3)]
+        public List<PersonModel> PersonList
+        {
+            get
+            {
+                if ((this.personListField == null))
+                {
+                    this.personListField = new List<PersonModel>();
+                }
+                return this.personListField;
+            }
+            set
+            {
+                this.personListField = value;
             }
         }
     }
@@ -397,5 +506,7 @@ namespace ConsoleHelloWorldService
         AddNumberResponseType AddNumber(AddNumberRequestType request);
         
         AddPersonAgeResponseType AddPersonAge(AddPersonAgeRequestType request);
+        
+        GetAllPersonResponseType GetAllPerson(GetAllPersonRequestType request);
     }
 }

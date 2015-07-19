@@ -42,9 +42,33 @@ namespace ConsoleHelloWorldService
 
         public AddPersonAgeResponseType AddPersonAge(AddPersonAgeRequestType request)
         {
-            int result = request.num1 + request.person.Age;
-            
-            return new AddPersonAgeResponseType { Result = result }; 
+            AddPersonAgeResponseType response = new AddPersonAgeResponseType();
+
+            response.Person.Age = request.num1 + response.Person.Age;
+
+            if (response.Person.Age > 60)
+                response.IsPersonOlder = true;
+            else
+                response.IsPersonOlder = false;
+
+            return response;
+        }
+
+        public GetAllPersonResponseType GetAllPerson(GetAllPersonRequestType request)
+        {
+            GetAllPersonResponseType response = new GetAllPersonResponseType();
+            response.PersonList = new List<PersonModel>();
+            for (int i = 0; i < request.num1; i++)
+            {
+                PersonModel p = new PersonModel();
+                p.Name = "name" + i.ToString();
+                p.Age = 20 + i;
+
+                response.PersonList.Add(p);
+            }
+            response.Result = response.PersonList.Count;
+
+            return response;
         }
 
         #endregion

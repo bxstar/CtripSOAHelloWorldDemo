@@ -10,9 +10,9 @@
 >
   <xs:import id="SOACommonTypes" schemaLocation="CTripSOACommonTypes_V1.0.0.xsd"
              namespace="http://soa.ctrip.com/common/types/v1"></xs:import>
-  
-  
-  
+
+
+
   <xs:element name="HelloRequest" type="ns:HelloRequestType"/>
   <xs:complexType name="HelloRequestType">
     <xs:annotation>
@@ -24,11 +24,11 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Name" type="xs:string" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation>
-          If provided, service will response with Hello 'Name'.
-        </xs:documentation>
-      </xs:annotation>
+        <xs:annotation>
+          <xs:documentation>
+            If provided, service will response with Hello 'Name'.
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -52,8 +52,8 @@
     </xs:sequence>
   </xs:complexType>
 
-  
-  
+
+
   <xs:element name="GetLatestTimeRequest" type="ns:GetLatestTimeType" />
   <xs:complexType name="GetLatestTimeType">
     <xs:annotation>
@@ -87,8 +87,8 @@
     </xs:sequence>
   </xs:complexType>
 
-  
-  
+
+
   <xs:element name="AddNumberRequest" type="ns:AddNumberRequestType" />
   <xs:complexType name="AddNumberRequestType">
     <xs:annotation>
@@ -136,6 +136,7 @@
   </xs:complexType>
 
 
+
   <xs:element name="AddPersonAgeRequest" type="ns:AddPersonAgeRequestType" />
   <xs:complexType name="AddPersonAgeRequestType">
     <xs:annotation>
@@ -153,7 +154,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="person" type="ns:PersonModel" minOccurs="0">
+      <xs:element name="Person" type="ns:PersonModel" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             人员实体
@@ -163,10 +164,92 @@
     </xs:sequence>
   </xs:complexType>
 
+
+  <xs:element name="AddPersonAgeResponse" type="ns:AddPersonAgeResponseType" />
+  <xs:complexType name="AddPersonAgeResponseType">
+    <xs:annotation>
+      <xs:documentation>
+        增加后的人员信息
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
+      <xs:element name="IsPersonOlder" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            是否老年人
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Person" type="ns:PersonModel" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            人员实体
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+
+
+  <xs:element name="GetAllPersonRequest" type="ns:GetAllPersonRequestType" />
+  <xs:complexType name="GetAllPersonRequestType">
+    <xs:annotation>
+      <xs:documentation>
+        获取人员信息
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="num1" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            数字1
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="GetAllPersonResponse" type="ns:GetAllPersonResponseType" />
+  <xs:complexType name="GetAllPersonResponseType">
+    <xs:annotation>
+      <xs:documentation>
+        人员信息的数量和列表
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
+      <xs:element name="Result" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            人员数量
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PersonList" type="ns:PersonModel" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            人员信息列表
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
   <xs:complexType name="PersonModel">
     <xs:annotation>
       <xs:documentation>
-        人员实体
+        人员信息列表
       </xs:documentation>
       <xs:appinfo>
       </xs:appinfo>
@@ -189,22 +272,4 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="AddPersonAgeResponse" type="ns:AddPersonAgeResponseType" />
-  <xs:complexType name="AddPersonAgeResponseType">
-    <xs:annotation>
-      <xs:documentation>
-        增加年龄后的人员信息
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
-      <xs:element name="Result" type="xs:int" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>
-            增加年龄后的人员信息
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>

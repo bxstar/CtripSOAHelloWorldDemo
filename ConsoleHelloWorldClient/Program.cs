@@ -44,10 +44,29 @@ namespace ConsoleHelloWorldClient
 
             //Console.WriteLine(addResponse.Result);
 
-            int n1 = 20;
-            PersonModel p = new PersonModel() { Name = "yrs", Age = 30 };
-            var personResponse = client.AddPersonAge(new AddPersonAgeRequestType { num1 = n1, person = p });
-            Console.WriteLine(personResponse.Result);
+            //int n1 = 20;
+            //PersonModel p = new PersonModel() { Name = "yrs", Age = 30 };
+            //var personResponse = client.AddPersonAge(new AddPersonAgeRequestType { num1 = n1, Person = p });
+            
+            //Console.WriteLine(personResponse.IsPersonOlder);
+            //Console.WriteLine(personResponse.Person.Name);
+
+            //int n2 = 31;
+            //PersonModel p2 = new PersonModel() { Name = "yrs", Age = 30 };
+            //var personResponse2 = client.AddPersonAge(new AddPersonAgeRequestType { num1 = n2, Person = p2 });
+
+            //Console.WriteLine(personResponse2.IsPersonOlder);
+            //Console.WriteLine(personResponse2.Person.Name);
+
+
+            int i = 3;
+            var response4 = client.GetAllPerson(new GetAllPersonRequestType { num1 = i });
+            Console.WriteLine(response4.Result);
+
+            foreach (var item in response4.PersonList)
+            {
+                Console.WriteLine(item.Name+"\t"+item.Age);
+            }
 
             Console.ReadKey();
         }
