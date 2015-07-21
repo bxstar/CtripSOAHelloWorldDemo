@@ -60,9 +60,15 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Arch.Data">
+      <HintPath>..\Libs\SOA_Model\Arch.Data.dll</HintPath>
+    </Reference>
     <Reference Include="CServiceStack.Mega, Version=2.0.6.10, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\CServiceStack.Mega.dll</HintPath>
+    </Reference>
+    <Reference Include="Ctrip.Fin.API.Data.Model">
+      <HintPath>..\Libs\SOA_Model\Ctrip.Fin.API.Data.Model.dll</HintPath>
     </Reference>
     <Reference Include="Framework.Logging.V2.API, Version=3.0.0.22, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,6 +89,7 @@
     <Compile Include="Contract\HelloWorldServiceClient.cs" />
     <Compile Include="Contract\IHelloWorldService.cs" />
     <Compile Include="HelloWorldServiceImp.cs" />
+    <Compile Include="InterfaceDefine\IFuliOrderServiceDefine.cs" />
     <Compile Include="InterfaceDefine\IHelloWorldServiceDefine.cs" />
     <Compile Include="Entity\PersonEntity.cs" />
     <Compile Include="Program.cs" />

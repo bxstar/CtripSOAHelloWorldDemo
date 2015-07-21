@@ -255,17 +255,379 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Name" type="xs:string" minOccurs="0">
+      <xs:element name="Name" type="xs:string" minOccurs="0" >
         <xs:annotation>
           <xs:documentation>
             姓名
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Age" type="xs:int" minOccurs="0">
+      <xs:element name="Age" type="xs:int" minOccurs="0" >
         <xs:annotation>
           <xs:documentation>
             年龄
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+
+  <xs:element name="AddBalanceRechargeOrderRequest" type="AddBalanceRechargeOrderRequestType" />
+  <xs:complexType name="AddBalanceRechargeOrderRequestType">
+    <xs:annotation>
+      <xs:documentation>
+
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vid" type="xs:int" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BalanceRechargeOrder" type="BalanceRechargeOrderModel" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Invoice" type="InvoiceModel" maxOccurs="unbounded"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="AddBalanceRechargeOrderResponse" type="AddBalanceRechargeOrderResponseType" />
+  <xs:complexType name="AddBalanceRechargeOrderResponseType">
+    <xs:annotation>
+      <xs:documentation>
+
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ResponseStatus" type="common:ResponseStatusType" />
+      <xs:element name="ReturnBalanceRechargeOrder" type="BalanceRechargeOrderModel" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="BalanceRechargeOrderModel">
+    <xs:annotation>
+      <xs:documentation>
+
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="BalanceRechargeID" type="xs:long" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LocalOrderID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UID" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UserID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RewardBID" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AccountID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OrderType" type="xs:byte" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OrderStatus" type="xs:byte" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PayType" type="xs:byte" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TotalCount" type="xs:int" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TotalFaceAmount" type="xs:decimal" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OrderAmount" type="xs:decimal" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PaidAmount" type="xs:decimal" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsInvoiced" type="xs:boolean" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ContactName" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CredentialType" type="xs:byte" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CredentialNo" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MobileNo" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ClientIP" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DataChange_CreateTime" type="xs:dateTime" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DataChange_LastTime" type="xs:dateTime" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvoiceModel">
+    <xs:annotation>
+      <xs:documentation>
+
+      </xs:documentation>
+      <xs:appinfo>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="InvoiceID" type="xs:long" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BalanceRechargeID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OrderID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UserID" type="xs:long" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FullName" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DeliveryAddress" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceHead" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceContent" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ApplicationStatus" type="xs:byte" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="IsPreInvoice" type="xs:boolean" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ZipCode" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TelephoneNo" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DeliveryProvince" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DeliveryCity" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DeliveryDistrict" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Remark" type="xs:string" minOccurs="0"  >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DataChange_CreateTime" type="xs:dateTime" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DataChange_LastTime" type="xs:dateTime" minOccurs="0" nillable="true" >
+        <xs:annotation>
+          <xs:documentation>
+
           </xs:documentation>
         </xs:annotation>
       </xs:element>
