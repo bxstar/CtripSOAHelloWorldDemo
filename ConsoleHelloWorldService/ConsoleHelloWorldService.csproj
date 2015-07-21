@@ -83,6 +83,8 @@
     <Compile Include="Contract\HelloWorldServiceClient.cs" />
     <Compile Include="Contract\IHelloWorldService.cs" />
     <Compile Include="HelloWorldServiceImp.cs" />
+    <Compile Include="InterfaceDefine\IHelloWorldServiceDefine.cs" />
+    <Compile Include="Entity\PersonEntity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
